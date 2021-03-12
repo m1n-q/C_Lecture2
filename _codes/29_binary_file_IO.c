@@ -28,25 +28,25 @@ int main()
 
 	// Writing Example
 	{
-		//FILE* fp = fopen("binary_file", "wb");	// writing binary
+		// FILE* fp = fopen("binary_file", "ab");	// writing binary
 
-		//double d = 1.0 / 3.0;
-		//int n = 123;
-		//int* parr = (int*)malloc(sizeof(int) * n);
-		//if (!parr) exit(1);
-		//for (int n = 0; n < 123; ++n)
-		//	*(parr + n) = n * 2;
-
-
-		//// pointer와 사이즈를 넘겨줌!
-
-		//fwrite(&d, sizeof(d), 1, fp);	// 8
-		//fwrite(&n, sizeof(n), 1, fp);	// 4
-		//fwrite(parr, sizeof(int), n, fp);	// 123 * 4
+		// double d = 1.0 / 3.0;
+		// int n = 123;
+		// int* parr = (int*)malloc(sizeof(int) * n);
+		// if (!parr) exit(1);
+		// for (int n = 0; n < 123; ++n)
+		// 	*(parr + n) = n * 2;
 
 
-		//fclose(fp);
-		//free(parr);
+		// // (pointer, 사이즈, 개수) 를 넘겨줌!
+
+		// fwrite(&d, sizeof(d), 1, fp);	// 8
+		// fwrite(&n, sizeof(n), 1, fp);	// 4
+		// fwrite(parr, sizeof(int), n, fp);	// 123 * 4
+
+
+		// fclose(fp);
+		// free(parr);
 
 		// Total file size ?  
 	}
@@ -81,16 +81,16 @@ int main()
 
 		
 		
-		// feof() : EOF를 만났는가?
-		printf("feof = %d\n", feof(fp));	// return 0 : 딱 맞게 read 했으므로 !
-		fread(&n, sizeof(n), 1, fp);		// to make EOF : 하나 더 read
-		printf("feof = %d\n", feof(fp));	// return 1 : EOF 만남
+		// // feof() : EOF를 만났는가?
+		// printf("feof = %d\n", feof(fp));	// return 0 : 딱 맞게 read 했으므로 !
+		// fread(&n, sizeof(n), 1, fp);		// to make EOF : 하나 더 read
+		// printf("feof = %d\n", feof(fp));	// return 1 : EOF 만남
 		
 		
-		// ferror() : error가 발생했는가?
-		printf("ferror = %d\n", ferror(fp));	// return 0 : no error
-		fwrite(&n, sizeof(n), 1, fp);			// to make error
-		printf("ferror = %d\n", ferror(fp));	// return 1 : error 발생
+		// // ferror() : error가 발생했는가?
+		// printf("ferror = %d\n", ferror(fp));	// return 0 : no error
+		// fwrite(&n, sizeof(n), 1, fp);			// to make error
+		// printf("ferror = %d\n", ferror(fp));	// return 1 : error 발생
 
 		
 

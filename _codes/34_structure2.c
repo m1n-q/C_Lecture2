@@ -53,11 +53,14 @@ int main()
 
 	/* Designated Initialization */
 	struct person king = {
-		.age = 50,
+		
 		.name = "ramen king",
+		.age = 50,
+		
 		120.0f
 	};
 
+	printf("%s %d %f \n", king.name, king.age, king.height);
 	/* pointer to structure variable */
 
 	struct person* someone;

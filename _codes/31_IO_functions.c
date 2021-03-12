@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
+#include <stdlib.h>
 
 /*
 	ungetc()
@@ -15,20 +16,26 @@ int main()
 
 	/* ungetc() */
 
-	fp = fopen("30_input.txt", "r");
+	// fp = fopen("31_input", "a+");
 
-	ch = fgetc(fp);
-	fputc(ch, stdout);
+	// if (fp == NULL) exit(1);
 
-	ungetc(ch, fp);			// ch를 stream 에 넣어버림.
-	long cur = ftell(fp);
-	printf("%ld\n", cur);	// cursor도 다시 제자리로.
+	// long cur = ftell(fp);
+	// printf("%ld\n", cur );
+	// fseek(fp, 0L, SEEK_SET);
+
+	// ch = fgetc(fp);
+	// fputc(ch, stdout);
+
+	// ungetc(ch, fp);			// ch를 stream 에 넣어버림.
+	// cur = ftell(fp);
+	// printf("%ld\n", cur);	// cursor도 다시 제자리로.
 
 
-	ch = fgetc(fp);
-	fputc(ch, stdout);
-
-	fclose(fp);
+	// ch = fgetc(fp);
+	// fputc(ch, stdout);
+	// printf("\n");
+	// fclose(fp);
 	
 	{
 		/*char k;
@@ -41,33 +48,47 @@ int main()
 
 	/* setvbuf() */
 	
-	//fp = fopen("30_input.txt", "r");
+	fp = fopen("31_input", "r");
 
-	//char buffer[32] = { '\0', };
-	//
+	char buffer[32] = { '\0', };
+	
 
-	//setvbuf(fp, buffer, _IOLBF, sizeof(buffer));	// _IOLBF, _IOFBF, _IONBF
-	//												//  Line    Full    No
+	setvbuf(fp, buffer, _IOLBF, sizeof(buffer));	// _IOLBF, _IOFBF, _IONBF
+													//  Line    Full    No
 
-	//// dump buffer
-	//for (int i = 0; i < sizeof(buffer); ++i)
-	//	printf("%hhd", buffer[i]);
-	//printf("\n");
+	// dump buffer
+	for (int i = 0; i < sizeof(buffer); ++i)
+		printf("%hhd", buffer[i]);
+	printf("\n");
 
 
-
-	//ch = fgetc(fp);		// 한 글자만 읽었음. 
+	fseek(fp,0L,SEEK_SET);
+	ch = fgetc(fp);		// 한 글자만 읽었음. 
 	//					// 근데 밑에 버퍼가 꽉차있네?
 	//					// 버퍼를 먼저 채우고, 그 버퍼에서 한글자만 가져온것!
 	//
 
-	//// dump buffer
-	//for (int i = 0; i < sizeof(buffer); ++i)
-	//	printf("%c", buffer[i]);
-	//printf("\n");
+	// dump buffer
+	for (int i = 0; i < sizeof(buffer); ++i)
+		printf("%c", buffer[i]);
+	printf("\n");
+
+	printf("%c\n", ch);
+
+	scanf("%c", &ch);
 
 
-	//fclose(fp);
+
+	fseek(fp,0L,SEEK_SET);
+	
+	
+	ch = fgetc(fp);
+	printf("%c\n", ch);
+
+
+
+
+	fclose(fp);
 
 
 	/* fflush() */

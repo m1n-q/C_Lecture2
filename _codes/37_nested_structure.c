@@ -34,8 +34,8 @@ int main()
 	struct reservation res1 = {
 		.guest = { "Minkyu", "Shin" },
 		.host = { "Minju", "Kim" },
-		.food = { "Ramen" },
-		.place = { "Menji" },
+		.food = "Ramen",
+		.place = "Menji",
 		
 			//time
 		.year = 2021,

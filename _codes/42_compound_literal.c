@@ -72,7 +72,7 @@ int main()
 	
 	
 	
-	/*  L-value ! 메모리 주소를 가진다. */
+	/* Compound literal -> L-value ! 메모리 주소를 가진다. */
 
 
 

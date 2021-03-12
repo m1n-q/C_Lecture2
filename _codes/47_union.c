@@ -45,6 +45,7 @@ int main()
 
 	uni1.c = 'A';
 	printf("%c %x %d\n", uni1.c, (int)uni1.c, uni1.i);
+	printf("%d\n", uni1.i);
 	// 0xCCCCCC41 = -858993599
 		
 	

@@ -37,7 +37,7 @@ int main()
 	enum spectrum { red, orange, yellow, green, blue, violet} ;
 
 	enum spectrum color;
-	//printf("color = %lld", (long long)&color);
+	printf("color = %lld\n", (long long)&color);
 
 	color = blue;
 	if (color == yellow)

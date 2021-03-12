@@ -22,7 +22,7 @@ double func_block(double d)
 		p *= q;
 
 		if (i == 5)
-			goto hello;		// 예외적으로, 식별자 선언 전에 사용 가능.
+			goto hello;		// goto : 예외적으로, 식별자 선언 전에 사용 가능.
 
 	}
 

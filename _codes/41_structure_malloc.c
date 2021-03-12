@@ -25,10 +25,14 @@ int main()
 		pointer member에 입력받기.
 
 		Dangerous usage
+
+		- member에 바로 입력받을 시,
+		- 해당 주소에 저장 : 리터럴이 있을 시에 문제.
+		
 	*/
 
 	//struct namect p = { "Minkyu", "Shin" };		// text segment
-	//// poitner가 "Minkyu", "Shin" 상수의 첫주소를 가리키는 중
+	//// poitner가 "Minkyu", "Shin" 리터럴의 첫주소를 가리키는 중
 	//
 	//printf("%s %s\n", p.fname, p.lname);
 

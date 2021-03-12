@@ -31,7 +31,7 @@ int main()
 	
 	//byte b;		// typedef has scope
 
-	time_t t = time(NULL);
+	// time_t t = time(NULL);
 
 	/*
 		typedef		vs		 #define
@@ -51,10 +51,10 @@ int main()
 	/*
 		#define STRING char*
 
-		STRING name, sign		// NOTE: the type of sign
-		char * name, * sign	
-		
-	*/
+		STRING name, sign;		// NOTE: the type of sign
+		char * name, * sign;	
+	*/	
+	
 
 	typedef struct complex {
 		float real;

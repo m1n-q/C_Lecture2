@@ -23,7 +23,7 @@ void count()
 
 void static_count()
 {
-	static int ct = 0;		//- static stroage duration
+	static int ct = 0;		//- static stroage duration : linkage랑은 다른 문제.
 	printf("Static count = %d\n", ct);
 	ct++;
 
@@ -34,7 +34,8 @@ int main()
 	count();
 	count();
 	static_count();
-	static_count();
+	static_count();		// ct : no linkage, scope 밖에서 사용은 안되지만
+						//		static storage duration, 프로그램의 끝까지 지속
 
 
 	return 0;

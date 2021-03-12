@@ -79,7 +79,7 @@ void show_result(struct name_count* nc)
 }
 char* s_gets(char* st, int n)
 {
-	char* __cdecl ret = fgets(st, n, stdin);;
+	char* ret = fgets(st, n, stdin);;
 	char* find;
 	if (ret)
 	{

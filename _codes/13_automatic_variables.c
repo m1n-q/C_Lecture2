@@ -63,7 +63,7 @@ int main()			// NOTE: main() is a function.
 	
 	
 	for (int m = 1; m < 2; m++)
-		printf("m %lld\n", (long long)&m);		// no block ? 예외!
+		printf("m %lld\n", (long long)&m);		// for, while : no block, no scope ? 예외!
 
 
 	return 0;

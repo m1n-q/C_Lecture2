@@ -1,142 +1,136 @@
-#define _CRT_SECURE_NO_WARNINGS
-
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <conio.h>
+// #include <conio.h>
+
 #define LEN 101
 
 struct book
 {
-	char name[LEN];
-	char author[LEN];
+    char title[LEN];
+    char author[LEN];
 };
 
-void print_books(const struct book* books, int n);
-void write_books(const char* filename, const struct book* books, int n);
-struct book* read_books(const char* filename, int* n);
-void read_books2(const char* filename, struct book** books_dptr, int* n);
+void print_books(struct book* bookarr, int bookcnt) ;
+void write_books(char * filename, struct book* bookarr, int bookcnt);
 
+
+struct book* read_books(char* filename, int* bookcnt);
+void read_books2(char* filename, struct book** barr_ptr, int* bookcnt);
 
 
 
 int main()
 {
+    int bookcnt = 3;
 
-	struct book my_books[3];
-	//struct book* my_books = (struct book*)malloc(sizeof(struct book) * 3);
-	my_books[0] = (struct book){ "Momo", "MIN" };
-	my_books[1] = (struct book){ "The Odyssey", "Homer" };
-	my_books[2] = (struct book){ "Holmes", "Conan doil" };
+    struct book* my_books = (struct book*)malloc(sizeof(struct book) * bookcnt);
+    struct book* your_books = (struct book*)malloc(sizeof(struct book) * bookcnt);
+    (*my_books) = (struct book) {"Momo","Minkyu"};
+    *(my_books+1) = (struct book) {"Title","Author"};
+    my_books[2] =(struct book) {"What","Whom"};
+    print_books(my_books,bookcnt);
 
-	int bookcnt = 3;
-	print_books(my_books, bookcnt);
-	write_books("NEWFILE.txt", my_books, bookcnt);
-	//struct book* new_books = read_books("NEWFILE.txt", &bookcnt);
+    write_books("TEST",my_books,bookcnt);
+    int temp;
 
-	struct book* newbooks;
-	newbooks = (struct book*)malloc(sizeof(struct book) *(bookcnt));
-	read_books2("NEWFILE.TXT", &newbooks, &bookcnt);
+    if (scanf("%d",&temp) == 0) exit(1);
+
+    // my_books = read_books("TEST",&bookcnt);
+    read_books2("TEST",&my_books,&bookcnt);
+    print_books(my_books,bookcnt);
+    
+  
+
+    return 0;
 
 
-	return 0;
+    
+// int ( n)
+
+// void ( int *n) 
+
+// struct book* ( struct book* )
+
+// void ( struct book** )
 
 }
 
-
-void print_books(const struct book *books, int n)
+void print_books(struct book* bookarr,int bookcnt)
 {
-	for (int i = 0; i < n; i++)
-		//printf("\"%s\" written by %s\n", (books+i)->name, (books+i)->author);
-		printf("\"%s\" written by %s\n", books[i].name, (*(books + i)).author);
-
-
-
-	// books[i].name
-	// (books+i)->name
-	// (*(books+i)).name
+    for (int i = 0; i<bookcnt; i++)
+    {
+        printf("Book %d : \"%s\" written by \"%s\"\n",  i+1,bookarr[i].title,(bookarr+i)->author);
+    }
 
 }
 
-void write_books(const char* filename, const struct book* books, int n)
+void write_books(char * filename, struct book* bookarr, int bookcnt)
 {
-	FILE* fw;
-	fw = fopen(filename, "w");
+    FILE* fw = fopen(filename, "w");
+    if (fw == NULL) exit(1);
 
-		
-	printf("\nWriting FILE.\n");
+    fprintf(fw,"%d\n",bookcnt);
 
-	fprintf(fw, "%d", n);
-	fputs("\n", fw);
-	for (int i = 0; i < n; i++)
-	{
-		fputs((books+i)->name, fw);
-		fputs("\n", fw);
-		fputs((books+i)->author, fw);
-		fputs("\n", fw);
-
-	}
-	fclose(fw);
-	printf("DONE\n\n");
-	
-
+    for (int i = 0;i < bookcnt; i++)
+    {
+        fprintf(fw,"%s\n%s\n",bookarr[i].title,bookarr[i].author);
+    }
+    fclose(fw);
 }
 
-struct book* read_books(const char* filename, int* n)
-{	
-
-
-	printf("Press any key to read data from a file.\n");
-
-	if (_getch()) printf("\n");
-	else exit(1);
-	
-	FILE* fr;
-	struct book* newbooks;
-	
-	fr = fopen(filename, "r");
-	fscanf(fr, "%d\n", n);		//%d%*c
-
-	newbooks = (struct book*)malloc(sizeof(struct book) * (*n));
-
-	for (int i = 0; i < *n; i++)
-	{
-		fscanf(fr,"%[^\n]%*c", &((newbooks + i)->name));
-		fscanf(fr, "%[^\n]%*c", &((newbooks + i)->author));
-		printf("Book %d : \"%s\" written by \"%s\"\n",
-			i + 1, (newbooks + i)->name, (newbooks + i)->author);
-	}
-	
-	return newbooks;
-	
-
-
-}
-void read_books2(const char* filename, struct book** books_dptr, int* n)
+struct book* read_books(char* filename, int* bookcnt)
 {
+    FILE* fr = fopen(filename, "r");
 
-	printf("Press any key to read data from a file.\n");
 
-	if (_getch()) printf("\n");
-	else exit(1);
+    fscanf(fr,"%d%*c",bookcnt);
+    struct book* ret_books = (struct book*)malloc(sizeof(struct book) *(* bookcnt));
 
-	FILE* fr;
-	
+    for (int i = 0; i < *bookcnt; i++)
+    {
+        fscanf(fr,"%s\n%s\n",ret_books[i].title, ret_books[i].author);
+    }
 
-	fr = fopen(filename, "r");
-	fscanf(fr, "%d\n", n);
+    fclose(fr);
+    return ret_books;
+}
 
-	
-	char buffer[LEN];
-	for (int i = 0; i < *n; i++)
-	{
+void read_books2(char* filename, struct book** barr_ptr, int* bookcnt)
+{ 
+    /* SOL 1 */
 
-		fscanf(fr, "%[^\n]%*c", buffer);
-		strcpy( ((*books_dptr)[i]).name, buffer);
-		fscanf(fr, "%[^\n]%*c", buffer);
-		strcpy( ((*books_dptr)[i]).author, buffer);
-		printf("Book %d : \"%s\" written by \"%s\"\n",
-			i + 1, ((*books_dptr)[i]).name, ((*books_dptr)[i]).author);
-	}
+    FILE* fr = fopen(filename, "r");
+
+
+    fscanf(fr,"%d%*c",bookcnt);
+    struct book* ret_books = (struct book*)malloc(sizeof(struct book) *(* bookcnt));
+
+    for (int i = 0; i < *bookcnt; i++)
+    {
+        fscanf(fr,"%s\n%s\n",ret_books[i].title, ret_books[i].author);
+    }
+
+    fclose(fr);
+
+    // *barr_ptr = ret_books;		// *barr_ptr = my_books = struct book*
+    // barr_ptr = &ret_books;   // same? 
+
+
+    /* SOL 2 */
+    
+    // FILE* fr = fopen(filename, "r");
+
+
+    // fscanf(fr,"%d%*c",bookcnt);
+    
+
+    // for (int i = 0; i < *bookcnt; i++)
+    // {
+    //     fscanf(fr,"%s\n%s\n",(*(*barr_ptr+i)).title, (*(*barr_ptr+i)).author);
+    // }
+
+    // fclose(fr);
+
+    
 
 }

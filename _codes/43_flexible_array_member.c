@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
-#include <stdlib.h>;
+#include <stdlib.h>
 
 
 int main()
@@ -56,14 +56,17 @@ int main()
 
 	printf("Address of pf->values : %lld\n", (long long)& (pf->values));
 	printf("  Value of pf->values : %lld\n", (long long)(pf->values));	// pf->values == 배열명 == 첫원소주소
-	printf("   Size of pf->values : %zd\n", sizeof(&pf->values));		// No memory size!
+	// printf("   Size of pf->values : %zd\n", sizeof(pf->values));		// No memory size! 0 !
 
 	
 	
 
 	printf("\n");
+	struct flex* pf2 = pf +1;
+	
 
-
+	printf("%lld\n",  (long long)(pf));
+	printf("%lld\n",  (long long)(pf2));
 
 	pf->count = n;
 	pf->values[0] = 1.1;
@@ -79,10 +82,19 @@ int main()
 	printf("Average = %f\n", pf->average);
 
 
+	/* 영역 침범?! */
+	printf("%lld\n",  (long long)(pf));
+	printf("%lld\n",  (long long)(pf2));
+	printf("\n");
+	printf("%lld\n",  (long long)(&pf->values[1]));
+	printf("%lld\n",  (long long)(&pf2->average));
+
+
+
 
 	/*
 		차이 1: pointer 만큼 size 차지. 
-		차이 2: 추가 메모리가 heap 어딘가에.
+		차이 2: 추가 메모리가 heap 어딘가에! 배열이 구조체의 연속된 메모리가 아니게 됨.
 	*/
 	/*
 	struct nonflex

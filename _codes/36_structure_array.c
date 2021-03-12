@@ -17,7 +17,7 @@ typedef struct
 	float price;
 } Book;
 
-char* __cdecl gets_nonl(char*, int, FILE*);
+char* gets_nonl(char*, int, FILE *);
 
 int main()
 {	
@@ -57,15 +57,19 @@ int main()
 			booklist[i].title, booklist[i].author, booklist[i].price);
 	}
 	
-		
+
+	// ret ? 
+	// printf("%p\n","abc");
+	// printf("%p\n",booklist[0].author);
+	// printf("%p\n",gets_nonl(booklist[0].author,MAX,stdin));
 
 	return 0;
 
 }
 
-char* __cdecl gets_nonl(char* _Buffer, int _Maxcount, FILE* _Stream)
+char* gets_nonl(char* _Buffer, int _Maxcount, FILE* _Stream)
 {
-	char* __cdecl ret = fgets(_Buffer, _Maxcount, _Stream);
+	char* ret = fgets(_Buffer, _Maxcount, _Stream);
 	int i= 0;
 	while (1)
 	{

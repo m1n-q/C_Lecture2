@@ -84,7 +84,7 @@ int main()
 	
 	/*
 		restrict (__restrict in VS)
-		- sole initial means of accessing a data object
+		- SOLE initial means of accessing a data object
 		- compiler can't check this restriction
 	*/
 

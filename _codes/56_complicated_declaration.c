@@ -31,6 +31,7 @@ int main()
 	/*
 		1. 이름(식별자) 찾기
 		2. 우선순위 : [],() -> *
+		3. 안에서 밖으로
 	*/
 
 
@@ -84,7 +85,7 @@ int main()
 
 	/* But it can return a pointer to a function */
 	
-	int (*g(int))(void);
+	int (*g2(int))(void);
 
 	/* An array of functions aren't possible */
 

@@ -19,8 +19,8 @@ int main()
 	/*strcat(str1, ", ");
 	strcat(str1, str2);*/
 	//strncat(str1, str2, 2);		//	Append n character
-	//my_strcat(str1, str2);
-	//puts(str1);
+	my_strcat(str1, str2);
+	puts(str1);
 
 	//TODO: implement my_strcat()!
 
@@ -104,5 +104,5 @@ void my_strcat(char *str1, char *str2)
 			str1++;
 		*(str1++) = *str2++;
 	}
-	*str1 += *str2;
+	// *str1 += *str2;
 }

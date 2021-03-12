@@ -15,7 +15,7 @@ int func2(char i)
 int main()
 {	
 	/*
-		포인터가 반환형, parameter를 알아야함
+		포인터가 (반환형, parameter)를 알아야함
 
 		cf) 일반 포인터 : 자료형의 사이즈를 알아야함
 	*/

@@ -5,14 +5,14 @@
 #include <stdbool.h>
 
 
-enum spectrum { red, orange, yellow, green, blue };
+enum spectrum { red, orange, yellow, green, blue } color;
 const char* colors[] = { "red","orange","yellow","green","blue" };
 
 #define LEN 30
 
 int main()
 {
-	enum spectrum color;
+	
 
 	char input[LEN] = { 0, };
 	bool founded = 0;

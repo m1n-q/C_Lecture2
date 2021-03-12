@@ -33,10 +33,11 @@ double g_arr[1000] = { 0.0, };
 /*
 	Initializing External Variables
 	
-	-cannot intialize in block scope
+	- cannot initialize in block scope
+	- cannot initialize by variables
 */
 
-int x = 5;					// OK w/ constant expression
+int x = 5;					// OK w/ CONSTANT expression
 int y = 1 + 2;
 size_t z = sizeof(int);
 
@@ -60,7 +61,7 @@ int main()
 
 	//int g_int = 123;				// LOCAL : hides global g_int
 	//extern int g_int;				// Optional : referencing declaration.
-									// 명확한 표시 정도.
+									// 전역 변수를 가져올것이라는 명확한 표시 정도.
 
 
 	//extern int g_int = 1024;		// cannot intialize in block scope
