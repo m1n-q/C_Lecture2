@@ -53,7 +53,7 @@ but in rising every time we fall."
 #define LIMIT 20
 const int LIM = 50;
 static int arr1[LIMIT];
-//static int arr2[LIM];		// clang, C++
+static int arr2[LIM];		// clang, C++
 const int LIM2 = 2 * LIMIT;
 //const int LIM3 = 2 * LIM;	// clang, C++
 

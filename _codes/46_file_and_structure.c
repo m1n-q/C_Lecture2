@@ -112,8 +112,8 @@ void read_books2(char* filename, struct book** barr_ptr, int* bookcnt)
 
     fclose(fr);
 
-    // *barr_ptr = ret_books;		// *barr_ptr = my_books = struct book*
-    // barr_ptr = &ret_books;   // same? 
+    *barr_ptr = ret_books;		    // barr_ptr 이 가리키는 배열을 ret_books 라는 배열로 바꿔줌 ㅎ
+    // barr_ptr = &ret_books;       //  SAME ? ㅋ
 
 
     /* SOL 2 */

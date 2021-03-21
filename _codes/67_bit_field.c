@@ -19,6 +19,7 @@ struct
 int main()
 {	
 	items_flag.has_sword = 1;
+	sizeof(items_flag);
 	// flags = flags | MASK_SWORD;
 
 

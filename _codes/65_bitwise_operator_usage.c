@@ -25,6 +25,7 @@ void int_binary(const int num);
 	mask			00000011		// 보고 싶은 부분만 보겠다!
 	mask & flag ==  00000010
 */
+
 int main()
 {	
 	/*

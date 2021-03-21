@@ -25,21 +25,21 @@ int main()
 	
 	/* NOT defined in VS */
 
-	//printf("__STDC__ : %d\n", __STDC__);	// conforms to the C standard
-	//printf("__STDC_HOSTED__ : %d\n", __STDC_HOSTED__);	// hosted vs freestanding implemntation
-	//printf("__STDC_VERSION__ : %d\n", __STDC_VERSION__);
+	printf("__STDC__ : %d\n", __STDC__);	// conforms to the C standard
+	printf("__STDC_HOSTED__ : %d\n", __STDC_HOSTED__);	// hosted vs freestanding implemntation
+	printf("__STDC_VERSION__ : %d\n", __STDC_VERSION__);
 
 
-//#line 7
-//	printf("__LINE__ after #line : %d\n", __LINE__);
-//#line 1	"hello.txt"
-//	printf("__LINE__ after #line : %d\n", __LINE__);
-//	printf("__FILE__ : %s\n", __FILE__);
+#line 7
+	printf("__LINE__ after #line : %d\n", __LINE__);
+#line 1	"hello.txt"
+	printf("__LINE__ after #line : %d\n", __LINE__);
+	printf("__FILE__ : %s\n", __FILE__);
 
 
-//#if __LINE__ != 38
-//#error Not line 38
-//#endif
+#if __LINE__ != 40
+#error Not line 38
+#endif
 
 
 //#if defined(_WIN64) != 1

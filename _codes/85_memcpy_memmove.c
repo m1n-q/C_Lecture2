@@ -10,7 +10,7 @@
 void prt(int* arr, int n)
 {
 	for (int i = 0; i < n; ++i)
-		printf("%d", arr[i]);
+		printf("%d ", arr[i]);
 	printf("\n");
 }
 int main()
@@ -39,8 +39,9 @@ int main()
 	*/
 	
 	//memcpy(arr1, &arr1[2], sizeof(int) * 4);	// undefined behavior
-	memmove(arr1, &arr1[2], sizeof(int) * 4);	// Src : Source의 "시작점"
-												// Dst : Dest. 의 "시작점"
+	memmove(arr1, &arr1[2], sizeof(int) * 4);	// Dst : Dest. 의 "시작점"
+												// Src : Source의 "시작점"
+												
 
 
 	/*

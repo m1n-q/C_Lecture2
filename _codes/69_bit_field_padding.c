@@ -21,16 +21,16 @@ void print_binary(char* data, int bytes)	// extended for any sizes
 	printf("\n");
 
 
-	/*for (int i = 0; i < bytes; ++i)
-		char_to_binary(data[bytes - 1 - i]);
-	printf("\n");*/
+	// for (int i = 0; i < bytes; ++i)
+	// 	char_to_binary(data[bytes - 1 - i]);
+	// printf("\n");
 }
 
 
 int main()
 {	
 	/*
-		bit-field struct member 자료형 ?
+		bit-field struct member의 자료형 ?
 		1. 어떤 자료형처럼 해석될지
 		2. bit-field의 크기 결정시 작용  (사용은 배정받은 bits 만큼만, 나머지는 padding!)
 	*/
@@ -46,9 +46,10 @@ int main()
 	} bbf;
 
 
+
 	/* padding 과 bit-field 확인하기 */
 
-	memset((char*)&bbf, 0xff, sizeof(bbf));
+	memset((char*)&bbf, 0xff, sizeof(bbf));		// bbf에 해당하는 메모리를 전부 11111111로 초기화
 	print_binary((char*)&bbf, sizeof(bbf));
 	bbf.option1 = 0;
 	bbf.option2 = 0;
@@ -56,7 +57,7 @@ int main()
 	print_binary((char*)&bbf, sizeof(bbf));
 
 
-	printf("%zu bytes\n", sizeof(bbf));
+	printf("%lu bytes\n", sizeof(bbf));
 
 	struct {
 		unsigned short option1 : 8;
@@ -65,7 +66,7 @@ int main()
 		unsigned short option3 : 1;
 	} usbf;
 
-	printf("%zu bytes\n", sizeof(usbf));
+	printf("%zu bytes\n", sizeof(usbf));		// unsigned short
 
 	struct {
 		unsigned int option1 : 1;
@@ -74,7 +75,8 @@ int main()
 		
 	} uibf;
 
-	printf("%zu bytes\n", sizeof(uibf));	//  1bit + 1bit = ?
+	printf("%zu bytes\n", sizeof(uibf));	//  1bit + 1bit = ?	
+											//  unsigned int
 
 
 

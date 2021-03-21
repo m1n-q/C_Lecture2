@@ -59,6 +59,7 @@ int main()
 	printf("%hhu\n", ~a^a);
 	print_binary(~a^a);
 
+	
 	return 0;
 
 }

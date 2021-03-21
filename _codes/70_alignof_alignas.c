@@ -48,7 +48,7 @@ int main()
 	//printf("&cz : %p %lld\n", &cz, (long long)&cz % 16);
 	
 	unsigned char alignas(long double) c_arr[sizeof(long double)];
-
+	
 	
 	
 	return 0;

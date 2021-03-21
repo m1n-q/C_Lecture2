@@ -40,6 +40,8 @@ int main()
 	print_binary(7);
 	print_binary(-7);
 	print_binary(~-7 + 1);
+
+	print_binary(-14);
 	return 0;
 
 }

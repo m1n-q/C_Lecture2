@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-//#include <stdnoreturn.h>    // not in VS
+#include <stdnoreturn.h>    // not in VS
 
 
 
@@ -19,10 +19,15 @@
 // causes undefined behavior if i <= 0
 // exits if i > 0
 
-//_Noreturn void stop_now(int i)	// _Noreturn : 이 함수가 끝나고 어딘가로 돌아가지 않는다.
-//{
-//	if (i > 0) exit(i);
-//}
+_Noreturn void stop_now(int i)	// _Noreturn : 이 함수가 끝나고 어딘가로 돌아가지 않는다.
+{
+	if (i > 0) 
+	{
+		;
+		// exit(i);
+	}
+	// return i;
+}
 
 
 
@@ -46,6 +51,9 @@ int main()
 		- 함수 pointer의 목록 !
 		- runtime에 결정
 	*/
+
+
+	// stop_now(20);
 
 	printf("Purchased?\n");
 	if (getchar() == 'y')

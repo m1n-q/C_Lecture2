@@ -11,7 +11,7 @@
 #define PRINT_SQR2(x)	printf("The square of " #x " is %d.\n", SQUARE(x))
 
 /*
-	## opeator combines two tokens into a single token
+	## opeator COMBINES two tokens INTO A SINGLE TOKEN
 */
 
 #define XNAME(n)	x ## n		// x == type x ( not argument )
@@ -30,6 +30,7 @@ int main()
 	PRT_XN(1);			// printf("x1 = %d\n", x1);
 	PRT_XN(2);			// printf("x2 = %d\n", x2);
 
+	
 
 	return 0;
 

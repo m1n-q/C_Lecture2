@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <assert.h>
 
-//#include <limits.h>
-//_Static_assert(CHAR_BIT == 9, "9-bit char falsely assumed");
+#include <limits.h>
+_Static_assert(CHAR_BIT == 9, "9-bit char falsely assumed");
 //빌드 자체를 막음, VS X
 
 int divide(int a, int b)

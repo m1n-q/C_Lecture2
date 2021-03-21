@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 #include <math.h>
-//#include <tgmath.h>		// type generic macros, VS X
+#include <tgmath.h>		// type generic macros, VS X
 
 
 //Generic Selection Expression
@@ -31,13 +31,13 @@ int main()
 		Type Variants
 	*/
 
-	//double t1 = SQRT(2.0f);
-	//double t2 = SQRT(2.0);
+	double t1 = SQRT(2.0f);
+	double t2 = SQRT(2.0);
 
-	//if (t1 == t2)
-	//	printf("Identical\n");
-	//else
-	//	printf("Not identical\n");
+	if (t1 == t2)
+		printf("Identical\n");
+	else
+		printf("Not identical\n");
 
 
 	/*

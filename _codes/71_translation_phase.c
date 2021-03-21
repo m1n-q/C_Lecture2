@@ -7,7 +7,9 @@
 
 	Translating
 	Preprocessing
+	
 	Compiling
+
 	Linking
 
 	Executable
@@ -55,7 +57,7 @@ int main()
 	*/
 
 	int arr[3] = { 1,2,3 };
-	printf("arr??(0??) == %d\n", arr??(0??));
+	// printf("arr??(0??) == %d\n", arr??(0??));
 	//printf("arr[0] == %d\n", arr[0]);
 
 	/*
